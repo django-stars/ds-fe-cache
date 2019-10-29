@@ -9,7 +9,7 @@
     "prepublishOnly": "yarn clean && yarn build"
   },
   "peerDependencies": {
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.5"
   },
   "files": [
     "LICENSE",
