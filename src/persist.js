@@ -21,9 +21,10 @@ export default function persistReducer(whiteList = []) {
   return function(state, action) {
     switch (action.type) {
       case INIT_STORE:
-        return { ...state, ...action.payload }
+        return { ...state, ...action.payload, isInitialized: true }
       case RESET_STORE:
-        return isEmpty(whiteList) ? {} : pick(state, whiteList)
+        const keysToPick = Array.isArray(whiteList) ? [...whiteList, 'isInitialized'] : ['isInitialized']
+        return pick(state, keysToPick)
       default:
         return state
     }
